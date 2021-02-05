@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class ClickCounter extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {count: 0};
+      this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+      this.setState((state) => {
+          return {count: state.count + 1};
+      });
+  }
+  
+  componentDidUpdate() {}
+
+  render() {
+      return [
+          <button key="1" onClick={this.handleClick}>Update counter</button>,
+          <span key="2">{this.state.count}</span>
+      ]
+  }
 }
 
-export default App;
+export default ClickCounter;
