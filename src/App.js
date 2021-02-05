@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 class ClickCounter extends React.Component {
   constructor(props) {
